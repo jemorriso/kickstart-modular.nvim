@@ -1,10 +1,10 @@
 return {
   'tpope/vim-fugitive',
-  keys = {
-    { '<leader>gs', mode = 'n', '<cmd>Git<cr>' },
-    { '<leader>gg', mode = 'n', '<cmd>Git commit -am "update"<cr>' },
-    { '<leader>gp', mode = 'n', '<cmd>Git push<cr>' },
-    { '<leader>gd', mode = 'n', '<cmd>Git diff<cr>' },
-    { '<leader>gb', mode = 'n', '<cmd>Git blame<cr>' },
-  },
+  config = function()
+    vim.keymap.set('n', '<leader>gs', '<cmd>Git<cr>')
+    vim.keymap.set('n', '<leader>gg', '<cmd>Git commit -am "update"<cr>')
+    vim.keymap.set('n', '<leader>gp', '<cmd>Git push<cr>')
+    vim.keymap.set('n', '<leader>gd', '<cmd>Git diff<cr>')
+    vim.keymap.set('n', '<leader>gb', '<cmd>Git blame<cr>')
+  end,
 }

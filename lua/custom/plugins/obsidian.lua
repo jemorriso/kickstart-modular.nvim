@@ -6,10 +6,11 @@ return {
       { name = 'docs-v5', path = '~/docs/foam/docs-v5' },
     },
   },
-  keys = {
-    { '<leader>of', mode = 'n', '<cmd>ObsidianQuickSwitch<cr>' },
-    { '<leader>og', mode = 'n', '<cmd>ObsidianSearch<cr>' },
-    { '<leader>ob', mode = 'n', '<cmd>ObsidianBacklinks<cr>' },
-    { '<leader>od', mode = 'n', '<cmd>ObsidianToday<cr>' },
-  },
+  config = function(_, opts)
+    vim.keymap.set('n', '<leader>of', '<cmd>ObsidianQuickSwitch<cr>')
+    vim.keymap.set('n', '<leader>og', '<cmd>ObsidianSearch<cr>')
+    vim.keymap.set('n', '<leader>ob', '<cmd>ObsidianBacklinks<cr>')
+    vim.keymap.set('n', '<leader>od', '<cmd>ObsidianToday<cr>')
+    require('obsidian').setup(opts)
+  end,
 }
