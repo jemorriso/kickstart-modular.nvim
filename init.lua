@@ -87,11 +87,17 @@ P.S. You can delete this when you're done too. It's your config now! :)
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
+--  NOTE I am also using ';' as another leader key
 vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.maplocalleader = ','
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
+
+vim.g['chezmoi#source_dir_path'] = '/Users/jerry/source/chezmoi'
+vim.g['chezmoi#use_tmp_buffer'] = 1
+
+vim.api.nvim_set_hl(0, 'JerryStatus', { bg = '#1e1e2e', fg = '#45475a' })
 
 -- [[ Setting options ]]
 require 'options'
@@ -104,6 +110,8 @@ require 'lazy-bootstrap'
 
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
+
+require 'config'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -29,10 +29,28 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+vim.keymap.set('n', '<leader>mdp', ':lua InsertMarkdownURL()<CR>', { silent = true })
+
+vim.keymap.set('n', ';w', ':w<cr>', { silent = true })
+vim.keymap.set('n', ';q', ':q<cr>', { silent = true })
+
+-- copilot supertab functionality
+vim.keymap.set('i', '<Tab>', function()
+  if require('copilot.suggestion').is_visible() then
+    require('copilot.suggestion').accept()
+  else
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<Tab>', true, false, true), 'n', false)
+  end
+end, {
+  silent = true,
+})
+
+vim.keymap.set('n', ';g', '<cmd>lua _Lazygit_toggle()<cr>', { desc = 'LazyGit' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -47,5 +65,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- vim.api.nvim_create_autocmd('BufWritePost', {
+--   desc = 'Auto commit when saving a file',
+--   group = vim.api.nvim_create_augroup('auto-commit-push', { clear = true }),
+--   callback = function()
+--     if vim.fn.getcwd() == '/Users/jerry/docs/vaults/docs-v6' then
+--       local res = vim.fn.system 'git commit -am "auto commit"'
+--       if string.find(res, 'fatal:') then
+--         vim.notify(res, vim.log.levels.ERROR)
+--       else
+--         vim.notify(res, vim.log.levels.INFO)
+--       end
+--     end
+--   end,
+-- })
 
 -- vim: ts=2 sts=2 sw=2 et
