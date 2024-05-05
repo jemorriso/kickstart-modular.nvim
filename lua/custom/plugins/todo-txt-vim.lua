@@ -1,1 +1,1 @@
-return { 'freitass/todo.txt-vim' }
+return { 'jemorriso/todo.txt-vim' }
