@@ -70,7 +70,11 @@ require('lazy').setup({
 
   require 'custom/plugins/todo-txt-vim',
 
+  require 'custom/plugins/todotxt',
+
   require 'custom/plugins/toggleterm',
+
+  require 'custom/plugins/vim-easy-align',
 
   require 'custom/plugins/vim-fugitive',
 
