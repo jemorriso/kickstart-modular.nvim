@@ -6,7 +6,8 @@ return {
     size = 20,
     open_mapping = ';j',
     insert_mappings = false,
-    terminal_mappings = false,
+    -- this shouldn't cause too many problems in terminal mode. ;j is not common.
+    terminal_mappings = true,
     shade_terminals = false,
   },
 }
