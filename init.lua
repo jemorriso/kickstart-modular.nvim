@@ -94,9 +94,16 @@ vim.g.maplocalleader = ','
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+-- Configuration for chezmoi.vim.
+--
+-- 'use_tmp_buffer' to avoid ordering issues with plugin and options.
 vim.g['chezmoi#source_dir_path'] = '/Users/jerry/source/chezmoi'
 vim.g['chezmoi#use_tmp_buffer'] = 1
 
+-- set python virtualenv
+vim.g.python3_host_prog = '/Users/jerry/venvs/pynvim/.venv/bin/python'
+
+-- define highlight for statusline color set to catppuccin dark gray
 vim.api.nvim_set_hl(0, 'JerryStatus', { bg = '#1e1e2e', fg = '#45475a' })
 
 -- [[ Setting options ]]
