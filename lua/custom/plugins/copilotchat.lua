@@ -15,6 +15,7 @@ return {
     vim.keymap.set('n', '<leader>ct', '<cmd>CopilotChatToggle<cr>')
     vim.keymap.set('n', '<leader>cs', '<cmd>CopilotChatSave<cr>')
     vim.keymap.set('n', '<leader>cl', '<cmd>CopilotChatLoad<cr>')
+    vim.keymap.set('n', ';c', '<cmd>CopilotChatToggle<cr>')
     require('CopilotChat').setup {}
   end,
 }
