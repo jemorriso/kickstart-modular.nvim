@@ -2,6 +2,7 @@ return {
   'epwalsh/obsidian.nvim',
   opts = {
     workspaces = {
+      { name = 'docs-v7', path = '~/docs/vaults/docs-v7' },
       { name = 'docs-v6', path = '~/docs/vaults/docs-v6' },
       { name = 'docs-v5', path = '~/docs/foam/docs-v5' },
     },
@@ -30,6 +31,7 @@ return {
     vim.keymap.set('n', '<leader>og', '<cmd>ObsidianSearch<cr>')
     vim.keymap.set('n', '<leader>ob', '<cmd>ObsidianBacklinks<cr>')
     vim.keymap.set('n', '<leader>od', '<cmd>ObsidianToday<cr>')
+    vim.keymap.set('n', '<leader>on', ':ObsidianNew ')
     require('obsidian').setup(opts)
   end,
 }
